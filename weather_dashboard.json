@@ -12,13 +12,28 @@
       }
     ]
   },
+  "description": "A weather dashboard that uses the dark sky prometheus exporter to visualize weather.",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "id": 24,
-  "iteration": 1545576245193,
+  "iteration": 1545576889240,
   "links": [],
   "panels": [
+    {
+      "content": "",
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 16,
+      "links": [],
+      "mode": "markdown",
+      "title": "$City",
+      "type": "text"
+    },
     {
       "bgColor": null,
       "clockType": "12 hour",
@@ -37,7 +52,7 @@
         "h": 4,
         "w": 9,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 9,
       "links": [],
@@ -76,7 +91,7 @@
         "h": 4,
         "w": 5,
         "x": 9,
-        "y": 0
+        "y": 1
       },
       "id": 13,
       "interval": null,
@@ -155,7 +170,7 @@
         "h": 4,
         "w": 5,
         "x": 14,
-        "y": 0
+        "y": 1
       },
       "id": 14,
       "interval": null,
@@ -235,7 +250,7 @@
         "h": 4,
         "w": 5,
         "x": 19,
-        "y": 0
+        "y": 1
       },
       "id": 11,
       "interval": null,
@@ -304,7 +319,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 5
       },
       "id": 4,
       "legend": {
@@ -413,7 +428,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 12
       },
       "id": 2,
       "legend": {
@@ -519,7 +534,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 18
+        "y": 19
       },
       "id": 5,
       "legend": {
@@ -606,7 +621,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 26
       },
       "id": 6,
       "legend": {
@@ -700,7 +715,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 33
       },
       "id": 7,
       "legend": {
@@ -814,6 +829,79 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
+      },
+      {
+        "auto": true,
+        "auto_count": 50,
+        "auto_min": "50s",
+        "current": {
+          "text": "auto",
+          "value": "$__auto_interval_interval"
+        },
+        "hide": 0,
+        "label": "interval",
+        "name": "interval",
+        "options": [
+          {
+            "selected": true,
+            "text": "auto",
+            "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          },
+          {
+            "selected": false,
+            "text": "7d",
+            "value": "7d"
+          },
+          {
+            "selected": false,
+            "text": "14d",
+            "value": "14d"
+          },
+          {
+            "selected": false,
+            "text": "30d",
+            "value": "30d"
+          }
+        ],
+        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
       }
     ]
   },
@@ -849,5 +937,5 @@
   "timezone": "",
   "title": "Weather",
   "uid": "erBqehsmk",
-  "version": 44
+  "version": 48
 }
