@@ -60,7 +60,7 @@
   "gnetId": 9710,
   "graphTooltip": 2,
   "id": null,
-  "iteration": 1589641750528,
+  "iteration": 1589644681869,
   "links": [
     {
       "icon": "doc",
@@ -658,7 +658,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_temperature",
+          "expr": "openweather_currentconditions",
           "groupBy": [],
           "instant": true,
           "interval": "",
@@ -2134,5 +2134,5 @@
   "variables": {
     "list": []
   },
-  "version": 7
+  "version": 8
 }
