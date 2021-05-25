@@ -1,46 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.7.3"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -59,8 +17,8 @@
   "editable": true,
   "gnetId": 9710,
   "graphTooltip": 2,
-  "id": null,
-  "iteration": 1589644681869,
+  "id": 4,
+  "iteration": 1621979328005,
   "links": [
     {
       "icon": "doc",
@@ -74,7 +32,43 @@
   "panels": [
     {
       "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 2,
+          "mappings": [
+            {
+              "$$hashKey": "object:143",
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 105,
+          "min": -20,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#447ebc",
+                "value": null
+              },
+              {
+                "color": "#629e51",
+                "value": 32
+              },
+              {
+                "color": "#e24d42",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "fahrenheit"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 4,
@@ -84,55 +78,23 @@
       "id": 2,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "decimals": 2,
-            "mappings": [
-              {
-                "$$hashKey": "object:143",
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 105,
-            "min": -20,
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "#447ebc",
-                  "value": null
-                },
-                {
-                  "color": "#629e51",
-                  "value": 32
-                },
-                {
-                  "color": "#e24d42",
-                  "value": 85
-                }
-              ]
-            },
-            "unit": "fahrenheit"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "6.7.3",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "openweather_temperature",
+          "exemplar": true,
+          "expr": "openweather_temperature{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -188,7 +150,43 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "decimals": 1,
+          "mappings": [
+            {
+              "$$hashKey": "object:195",
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 50,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#629e51",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 14
+              },
+              {
+                "color": "red",
+                "value": 32
+              }
+            ]
+          },
+          "unit": "velocitymph"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 4,
@@ -198,55 +196,23 @@
       "id": 3,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "decimals": 1,
-            "mappings": [
-              {
-                "$$hashKey": "object:195",
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 50,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "#629e51",
-                  "value": null
-                },
-                {
-                  "color": "orange",
-                  "value": 14
-                },
-                {
-                  "color": "red",
-                  "value": 32
-                }
-              ]
-            },
-            "unit": "velocitymph"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
-        "showThresholdMarkers": true
+        "showThresholdMarkers": true,
+        "text": {}
       },
-      "pluginVersion": "6.7.3",
+      "pluginVersion": "7.5.3",
       "targets": [
         {
-          "expr": "openweather_windspeed",
+          "exemplar": true,
+          "expr": "openweather_windspeed{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -309,8 +275,12 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": null,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -402,7 +372,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_winddegree",
+          "exemplar": true,
+          "expr": "openweather_winddegree{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -475,8 +446,12 @@
         "#629e51",
         "#ef843c"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "pressurehpa",
       "gauge": {
         "maxValue": 100,
@@ -530,7 +505,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_pressure",
+          "exemplar": true,
+          "expr": "openweather_pressure{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -581,7 +557,7 @@
           ]
         }
       ],
-      "thresholds": "1016.93, 1018.75",
+      "thresholds": "1013.93, 1018.75",
       "title": "Atmospheric pressure",
       "type": "singlestat",
       "valueFontSize": "80%",
@@ -604,7 +580,11 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -658,7 +638,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_currentconditions",
+          "exemplar": true,
+          "expr": "openweather_currentconditions{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [],
           "instant": true,
           "interval": "",
@@ -716,7 +697,11 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "dateTimeAsUS",
       "gauge": {
         "maxValue": 100,
@@ -770,7 +755,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_sunrise * 1000",
+          "exemplar": true,
+          "expr": "openweather_sunrise{location=~\"$city\",job=~\"$job\"} * 1000",
           "groupBy": [
             {
               "params": [
@@ -850,8 +836,12 @@
         "#629e51",
         "#ef843c"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -903,7 +893,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_cloudiness",
+          "exemplar": true,
+          "expr": "openweather_cloudiness{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -976,8 +967,12 @@
         "#629e51",
         "#ef843c"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -1029,7 +1024,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_humidity",
+          "exemplar": true,
+          "expr": "openweather_humidity{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1102,7 +1098,11 @@
         "rgba(237, 129, 40, 0.89)",
         "#d44a3a"
       ],
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
       "format": "dateTimeAsUS",
       "gauge": {
         "maxValue": 100,
@@ -1156,7 +1156,8 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "openweather_sunset * 1000",
+          "exemplar": true,
+          "expr": "openweather_sunset{location=~\"$city\",job=~\"$job\"} * 1000",
           "groupBy": [
             {
               "params": [
@@ -1232,7 +1233,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1260,9 +1267,10 @@
       "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1273,7 +1281,8 @@
       "targets": [
         {
           "alias": "$tag_name, $tag_sys_country",
-          "expr": "openweather_temperature",
+          "exemplar": true,
+          "expr": "openweather_temperature{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1385,7 +1394,14 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
+      "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1395,7 +1411,7 @@
         "y": 6
       },
       "hiddenSeries": false,
-      "id": 202,
+      "id": 205,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -1413,9 +1429,10 @@
       "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1426,7 +1443,8 @@
       "targets": [
         {
           "alias": "$tag_name, $tag_sys_country",
-          "expr": "openweather_windspeed",
+          "exemplar": true,
+          "expr": "openweather_humidity{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1454,7 +1472,7 @@
             }
           ],
           "interval": "",
-          "legendFormat": "Wind Speed",
+          "legendFormat": "Humidity",
           "measurement": "openweathermap",
           "orderByTime": "ASC",
           "policy": "default",
@@ -1464,7 +1482,7 @@
             [
               {
                 "params": [
-                  "wind_speed"
+                  "main_humidity"
                 ],
                 "type": "field"
               },
@@ -1493,7 +1511,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Wind speed",
+      "title": "Humidity",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1509,16 +1527,17 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:2059",
-          "format": "velocitymph",
-          "label": null,
+          "$$hashKey": "object:2732",
+          "decimals": 0,
+          "format": "percent",
+          "label": "",
           "logBase": 1,
-          "max": null,
-          "min": null,
+          "max": "100",
+          "min": "0",
           "show": true
         },
         {
-          "$$hashKey": "object:2060",
+          "$$hashKey": "object:2733",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1537,8 +1556,14 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": null,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1566,9 +1591,10 @@
       "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1579,7 +1605,8 @@
       "targets": [
         {
           "alias": "$tag_name, $tag_sys_country",
-          "expr": "openweather_pressure",
+          "exemplar": true,
+          "expr": "openweather_pressure{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1691,8 +1718,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
-      "decimals": 0,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1702,7 +1734,7 @@
         "y": 15
       },
       "hiddenSeries": false,
-      "id": 205,
+      "id": 202,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -1720,9 +1752,10 @@
       "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1733,7 +1766,8 @@
       "targets": [
         {
           "alias": "$tag_name, $tag_sys_country",
-          "expr": "openweather_humidity",
+          "exemplar": true,
+          "expr": "openweather_windspeed{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1761,7 +1795,7 @@
             }
           ],
           "interval": "",
-          "legendFormat": "Humidity",
+          "legendFormat": "Wind Speed",
           "measurement": "openweathermap",
           "orderByTime": "ASC",
           "policy": "default",
@@ -1771,7 +1805,7 @@
             [
               {
                 "params": [
-                  "main_humidity"
+                  "wind_speed"
                 ],
                 "type": "field"
               },
@@ -1800,7 +1834,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Humidity",
+      "title": "Wind speed",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1816,9 +1850,8 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:2732",
-          "decimals": 0,
-          "format": "percent",
+          "$$hashKey": "object:2059",
+          "format": "velocitymph",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -1826,7 +1859,7 @@
           "show": true
         },
         {
-          "$$hashKey": "object:2733",
+          "$$hashKey": "object:2060",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1841,13 +1874,21 @@
       }
     },
     {
-      "aliasColors": {},
+      "aliasColors": {
+        "Cloudiness": "super-light-blue"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_PROMETHEUS}",
+      "datasource": "Prometheus",
       "decimals": 0,
-      "fill": 0,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 9,
@@ -1874,9 +1915,10 @@
       "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.5.3",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1887,7 +1929,8 @@
       "targets": [
         {
           "alias": "$tag_name, $tag_sys_country",
-          "expr": "openweather_cloudiness",
+          "exemplar": true,
+          "expr": "openweather_cloudiness{location=~\"$city\",job=~\"$job\"}",
           "groupBy": [
             {
               "params": [
@@ -1975,6 +2018,170 @@
           "format": "percent",
           "label": null,
           "logBase": 1,
+          "max": "100",
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:2802",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Rain": "blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 0,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "hiddenSeries": false,
+      "id": 207,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.3",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "$tag_name, $tag_sys_country",
+          "exemplar": true,
+          "expr": "openweather_rain1h{location=~\"$city\",job=~\"$job\"} / 25.4",
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "sys_country"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "name"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "interval": "",
+          "legendFormat": "Rain",
+          "measurement": "openweathermap",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "clouds_all"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "sys_country",
+              "operator": "=~",
+              "value": "/^$country$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=~",
+              "value": "/^$city$/"
+            }
+          ]
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Rain in last hour",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:2801",
+          "decimals": 2,
+          "format": "inches",
+          "label": null,
+          "logBase": 1,
           "max": null,
           "min": null,
           "show": true
@@ -1995,100 +2202,67 @@
       }
     }
   ],
-  "schemaVersion": 22,
+  "schemaVersion": 27,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "weather"
+  ],
   "templating": {
     "list": [
       {
-        "auto": true,
-        "auto_count": 30,
-        "auto_min": "10s",
+        "allValue": null,
         "current": {
           "selected": false,
-          "text": "auto",
-          "value": "$__auto_interval_interval"
+          "text": "Woodstock, Georgia",
+          "value": "Woodstock, Georgia"
         },
-        "hide": 0,
-        "label": "interval",
-        "name": "interval",
-        "options": [
-          {
-            "selected": true,
-            "text": "auto",
-            "value": "$__auto_interval_interval"
-          },
-          {
-            "selected": false,
-            "text": "1m",
-            "value": "1m"
-          },
-          {
-            "selected": false,
-            "text": "10m",
-            "value": "10m"
-          },
-          {
-            "selected": false,
-            "text": "30m",
-            "value": "30m"
-          },
-          {
-            "selected": false,
-            "text": "1h",
-            "value": "1h"
-          },
-          {
-            "selected": false,
-            "text": "6h",
-            "value": "6h"
-          },
-          {
-            "selected": false,
-            "text": "12h",
-            "value": "12h"
-          },
-          {
-            "selected": false,
-            "text": "1d",
-            "value": "1d"
-          },
-          {
-            "selected": false,
-            "text": "7d",
-            "value": "7d"
-          },
-          {
-            "selected": false,
-            "text": "14d",
-            "value": "14d"
-          },
-          {
-            "selected": false,
-            "text": "30d",
-            "value": "30d"
-          }
-        ],
-        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
-        "refresh": 2,
-        "skipUrlSync": false,
-        "type": "interval"
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_PROMETHEUS}",
+        "datasource": "Prometheus",
         "definition": "label_values(location)",
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "City",
         "multi": false,
         "name": "city",
         "options": [],
-        "query": "label_values(location)",
+        "query": {
+          "query": "label_values(location)",
+          "refId": "Prometheus-city-Variable-Query"
+        },
         "refresh": 1,
         "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "location",
+        "tags": [],
+        "tagsQuery": "openweather_temperature",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "openweather-exporter",
+          "value": "openweather-exporter"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(job)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Job",
+        "multi": false,
+        "name": "job",
+        "options": [],
+        "query": {
+          "query": "label_values(job)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/.*openweather.*/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "location",
@@ -2105,7 +2279,6 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -2131,8 +2304,5 @@
   "timezone": "",
   "title": "Open Weather Map",
   "uid": "7wISvn_iz",
-  "variables": {
-    "list": []
-  },
-  "version": 8
+  "version": 36
 }
